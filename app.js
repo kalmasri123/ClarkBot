@@ -129,7 +129,7 @@ if(args.length>2||args.length<2){
 if(message.mentions){
 scorekeeping.addBless(message.mentions.members.first().id)
 
-
+message.channel.send("**Bless You, My Child**")
 
 
 

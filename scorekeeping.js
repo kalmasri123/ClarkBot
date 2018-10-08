@@ -2,7 +2,28 @@ var blessings= require('./blessings.json')
 
 var fs= require("fs")
 var MongoClient = require('mongodb').MongoClient;
-var url = "mongodb://localhost:27017/";
+var MongoClient = require('mongodb').MongoClient;
+var assert = require('assert');
+ 
+var cloud = false;
+ 
+var mongodbHost = '127.0.0.1';
+var mongodbPort = '27017';
+ 
+var authenticate ='';
+//cloud
+if (cloud) {
+ mongodbHost = 'YOURHOST.mlab.com';
+ mongodbPort = 'YOURPORT';
+ authenticate = 'YOURUSER:YOURPASSWORD@'
+}
+ 
+var mongodbDatabase = 'world';
+ 
+// connect string for mongodb server running locally, connecting to a database called test
+var url = 'mongodb://'+authenticate+mongodbHost+':'+mongodbPort + '/' + mongodbDatabase;
+ 
+ 
 
 
 module.exports={

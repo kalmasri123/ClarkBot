@@ -5,6 +5,7 @@ var messages = ["**Bless You**", "**Very very good post**", "**Thats exactly rig
 const https = require('https');
 const Discord = require('discord.js');
 const client = new Discord.Client();
+var MongoClient = require('mongodb').MongoClient;
 
 
 var scorekeeper=require("./blessings.json")
@@ -129,7 +130,7 @@ if(args.length>2||args.length<2){
 if(message.mentions){
 scorekeeping.addBless(message.mentions.members.first().id)
 
-message.channel.send("**Bless You, My Child**")
+
 
 
 
@@ -153,12 +154,20 @@ if(args[0]=="%scoreboard"){
 
 let i = 0;
 var field=[]
+var url = "mongodb://localhost:27017/";
 
-for(var key in scorekeeper){
-console.log(message.guild.members.get(key).user.username)
+MongoClient.connect(url, function(err, db) {
+  var dbo = db.db("mydb");
 
-field[i]={name:message.guild.members.get(key).user.username,value:scorekeeper[key].toString()}
-i++
+
+      dbo.collection("blessingCounter").find({}).toArray(function(err, blessings) {
+
+for(var key in blessings){
+console.log(key)
+console.log(message.guild.members.get(blessings[key].user).user.username)
+
+field[i]={name:message.guild.members.get(blessings[key].user).user.username,value:blessings[key].score.toString()}
+
 
 }
 message.channel.send({embed: {
@@ -186,9 +195,14 @@ message.channel.send({embed: {
 
 
 
-}})
 
-client.login(process.env.token)
+
+
+})})
+
+}
+})
+client.login(settings.token)
 /*
  * Uhhhhh very very gud
  * bless you

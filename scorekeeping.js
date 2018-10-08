@@ -56,7 +56,7 @@ dbo.collection("blessingCounter").find({user:id}).toArray(function(err, blessing
   db.close()
 
   })
-}
+})
 
 
 })

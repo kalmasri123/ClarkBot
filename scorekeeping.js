@@ -2,7 +2,7 @@ var blessings= require('./blessings.json')
 
 var fs= require("fs")
 const MongoClient = require('mongoose');
-var url = "mongodb://localhost:27017/";
+var url = "mongodb://localhost:fooobar/";
 
 
 module.exports={

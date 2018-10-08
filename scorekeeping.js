@@ -46,15 +46,18 @@ var myobj={user:id,score:0}
 }
 
 console.log(blessings[0])
+dbo.collection("blessingCounter").find({user:id}).toArray(function(err, blessings) {
   var newvalues = { $set: { score:blessings[0].score+1 } };
-dbo.collection("blessingCounter").updateOne({user:id}, newvalues, function(err, res) {
-    if (err) throw err;
+  dbo.collection("blessingCounter").updateOne({user:id}, newvalues, function(err, res) {
+      if (err) throw err;
 
-    console.log("1 document updated");
+      console.log("1 document updated");
 
-db.close()
+  db.close()
 
-})
+  })
+}
+
 
 })
 

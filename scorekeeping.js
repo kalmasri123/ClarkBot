@@ -4,15 +4,14 @@ var fs= require("fs")
 var MongoClient = require('mongodb').MongoClient;
 var MongoClient = require('mongodb').MongoClient;
 var assert = require('assert');
- 
 
- 
+
 var mongodbDatabase = 'world';
- 
+
 // connect string for mongodb server running locally, connecting to a database called test
 var url = 	process.env.MONGODB_URI
- 
- 
+
+
 
 
 module.exports={
@@ -22,7 +21,7 @@ addBless:function(id){
 MongoClient.connect(url, function(err, db) {
 
   if (err) throw err;
-  var dbo = db.db("mydb");
+  var dbo = db.db("heroku_74r890t6");
 
 
 

@@ -203,7 +203,7 @@ message.channel.send({embed: {
 
 }
 })
-client.login(settings.token)
+client.login(process.env.token)
 /*
  * Uhhhhh very very gud
  * bless you

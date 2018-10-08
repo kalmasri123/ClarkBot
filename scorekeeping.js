@@ -1,7 +1,7 @@
 var blessings= require('./blessings.json')
 
 var fs= require("fs")
-var MongoClient = require('mongodb').MongoClient;
+const MongoClient = require('mongoose');
 var url = "mongodb://localhost:27017/";
 
 

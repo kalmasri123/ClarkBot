@@ -181,7 +181,7 @@ MongoClient.connect(url, function(err, db) {
 
 
       dbo.collection("blessingCounter").find({}).toArray(function(err, blessings) {
-
+console.log(blessings)
 for(var key in blessings){
 console.log(key)
 console.log(message.guild.members.get(blessings[key].user).user.username)

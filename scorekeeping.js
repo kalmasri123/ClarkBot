@@ -10,7 +10,7 @@ var assert = require('assert');
 var mongodbDatabase = 'world';
  
 // connect string for mongodb server running locally, connecting to a database called test
-var url = 	MONGODB_URI
+var url = 	process.env.MONGODB_URI
  
  
 

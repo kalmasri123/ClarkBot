@@ -5,7 +5,7 @@ var messages = ["**Bless You**", "**Very very good post**", "**Thats exactly rig
 const https = require('https');
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const MongoClient = require('mongoose');
+const MongoClient = require('mongodb').MongoClient;
 
 const port = process.env.PORT || 133
 
@@ -155,7 +155,7 @@ if(args[0]=="%scoreboard"){
 
 let i = 0;
 var field=[]
-var url = 'mongodb://localhost:27017';;
+var url =process.env.uri;
 
 MongoClient.connect(url, function(err, db) {
   var dbo = db.db("mydb");

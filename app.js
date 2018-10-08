@@ -156,12 +156,12 @@ let i = 0;
 var field=[]
 var MongoClient = require('mongodb').MongoClient;
 var assert = require('assert');
- 
+
 var cloud = false;
- 
+
 var mongodbHost = '127.0.0.1';
 var mongodbPort = '27017';
- 
+
 var authenticate ='';
 //cloud
 if (cloud) {
@@ -169,15 +169,15 @@ if (cloud) {
  mongodbPort = 'YOURPORT';
  authenticate = 'YOURUSER:YOURPASSWORD@'
 }
- 
+
 var mongodbDatabase = 'world';
- 
+
 // connect string for mongodb server running locally, connecting to a database called test
 var url = 	process.env.MONGODB_URI
- 
- 
+
+
 MongoClient.connect(url, function(err, db) {
-  var dbo = db.db("mydb");
+  var dbo = db.db("heroku_74r890t6");
 
 
       dbo.collection("blessingCounter").find({}).toArray(function(err, blessings) {

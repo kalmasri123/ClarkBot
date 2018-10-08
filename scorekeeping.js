@@ -1,8 +1,8 @@
 var blessings= require('./blessings.json')
 
 var fs= require("fs")
-const MongoClient = require('mongodb').MongoClient;
-var url = process.env.uri;
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb://localhost:27017/";
 
 
 module.exports={

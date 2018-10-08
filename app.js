@@ -178,7 +178,7 @@ var url = 	process.env.MONGODB_URI
 
 MongoClient.connect(url, function(err, db) {
   var dbo = db.db("heroku_74r890t6");
-
+i=0;
 
       dbo.collection("blessingCounter").find({}).toArray(function(err, blessings) {
 console.log(blessings)
@@ -188,7 +188,7 @@ console.log(message.guild.members.get(blessings[key].user).user.username)
 
 field[i]={name:message.guild.members.get(blessings[key].user).user.username,value:blessings[key].score.toString()}
 
-
+i++
 }
 message.channel.send({embed: {
     color: 3447003,

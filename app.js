@@ -17,8 +17,13 @@ var scorekeeping=require('./scorekeeping')
 
 
   client.on('presenceUpdate',(oldMember,newMember)=>{
+if(newMember.presence.game){
 
 console.log(newMember.presence.game.name)
+
+
+}
+
 
 
 

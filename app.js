@@ -18,7 +18,7 @@ var scorekeeping=require('./scorekeeping')
 
   client.on('presenceUpdate',(oldMember,newMember)=>{
 if(newMember.presence.game){
-
+oldMember.sendMessage("**Ten Minutes of no Fortnite will lead to Better grades on your Pop Test**")
 console.log(newMember.presence.game.name)
 
 

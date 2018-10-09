@@ -14,6 +14,16 @@ var scorekeeper=require("./blessings.json")
 
 
 var scorekeeping=require('./scorekeeping')
+
+
+  client.on('presenceUpdate',oldMember,newMember=>{
+
+console.log(newMember.presence)
+
+
+
+
+  })
 client.on('message', message => {
 let args= message.content.split(" ")
 function firstReq(){

@@ -179,11 +179,7 @@ var mongodbPort = '27017';
 
 var authenticate ='';
 //cloud
-if (cloud) {
- mongodbHost = 'YOURHOST.mlab.com';
- mongodbPort = 'YOURPORT';
- authenticate = 'YOURUSER:YOURPASSWORD@'
-}
+
 
 var mongodbDatabase = 'world';
 

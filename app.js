@@ -33,7 +33,7 @@ console.log(newMember.presence.game.name)
 
   })
 
-client.on('ready',()=>
+client.on('ready',()=>{
           client.user.setPresence({ game: { name: 'POP TEST GRADING SIMULATOR' }, status: 'online' })
   .then(console.log)
   .catch(console.error);

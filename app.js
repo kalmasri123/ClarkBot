@@ -18,18 +18,8 @@ var scorekeeping=require('./scorekeeping')
 
   client.on('presenceUpdate',(oldMember,newMember)=>{
 if(newMember.presence.game){
-  if(newMember.presence.game.name=="Fortnite"){
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-
+  if(newMember.presence.game.name=="Fortnite"){zz
 oldMember.sendMessage("**Ten Minutes of no Fortnite will lead to Better grades on your Pop Test**")
-=======
-oldMember.sendMessage("**Take Ten Minutes out of Fortnite to Study for your Pop Test**")
->>>>>>> 84a819e69af73b28dbc27cd25bd626d8b3ccf5f6
-=======
-oldMember.sendMessage("**Take Ten Minutes out of Fortnite to Study for your Pop Test**")
->>>>>>> 84a819e69af73b28dbc27cd25bd626d8b3ccf5f6
 
 }s
 console.log(newMember.presence.game.name)
@@ -42,19 +32,6 @@ console.log(newMember.presence.game.name)
 
 
   })
-
-client.on('ready',()=>{
-          client.user.setPresence({ game: { name: 'POP TEST GRADING SIMULATOR' }, status: 'online' })
-  .then(console.log)
-  .catch(console.error);
-<<<<<<< HEAD
-
-
-=======
-          
-          
->>>>>>> 84a819e69af73b28dbc27cd25bd626d8b3ccf5f6
-          })
 client.on('message', message => {
 let args= message.content.split(" ")
 function firstReq(){
@@ -162,8 +139,9 @@ if(args.length>2||args.length<2){
 
 
 }else{
-message.reply("**Bless You, My Child!**")
+
 //Correct Args.length
+message.reply("**Bless You, My Child!**")
 
 
 

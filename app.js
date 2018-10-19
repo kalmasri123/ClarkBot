@@ -20,9 +20,13 @@ var scorekeeping=require('./scorekeeping')
 if(newMember.presence.game){
   if(newMember.presence.game.name=="Fortnite"){
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
 oldMember.sendMessage("**Ten Minutes of no Fortnite will lead to Better grades on your Pop Test**")
+=======
+oldMember.sendMessage("**Take Ten Minutes out of Fortnite to Study for your Pop Test**")
+>>>>>>> 84a819e69af73b28dbc27cd25bd626d8b3ccf5f6
 =======
 oldMember.sendMessage("**Take Ten Minutes out of Fortnite to Study for your Pop Test**")
 >>>>>>> 84a819e69af73b28dbc27cd25bd626d8b3ccf5f6
@@ -43,8 +47,13 @@ client.on('ready',()=>{
           client.user.setPresence({ game: { name: 'POP TEST GRADING SIMULATOR' }, status: 'online' })
   .then(console.log)
   .catch(console.error);
+<<<<<<< HEAD
 
 
+=======
+          
+          
+>>>>>>> 84a819e69af73b28dbc27cd25bd626d8b3ccf5f6
           })
 client.on('message', message => {
 let args= message.content.split(" ")

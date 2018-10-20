@@ -15,7 +15,7 @@ var scorekeeper=require("./blessings.json")
 
 var scorekeeping=require('./scorekeeping')
 client.on('ready',()=>{
-  
+
   client.user.setActivity('POP TEST GRADING SIMULATOR', { type: 'PLAYING' });
   })
 
@@ -36,7 +36,34 @@ console.log(newMember.presence.game.name)
 
   })
 client.on('message', message => {
-let args= message.content.split(" ")
+  let args= message.content.split(" ")
+
+  let names = ["Baylor Meritt", "Hunter Blythe", "Mark Mikhail", "Grace Brydge", "Anna Morris"]
+  let randomizer = Math.random(0, names.length)
+var commands = [{name:"%help",value:"**Pulls Up the Smartboard Notes**"},{name:"%clark",value:"**Gives Fashion Advice with the Consultation of ${names[Math.floor(Math.random() * Math.floor(messages.length-1))]}**"},{name:"%scoreboard",value:"Gives the Very Very Best Students"},
+{name:"bless",value:"**Applies a Blessing Towards a Person who Splattered their Brain on my Wall as Compensation**"}]
+
+  if(args[0]=="%help"){
+
+
+    message.channel.send({embed: {
+        color: 3447003,
+        author: {
+          name: client.user.username,
+          icon_url: client.user.avatarURL
+        },
+        title: "**Smartboard Notes**",
+        url: "",
+        description: "It's On RenWeb",
+        fields:,
+        timestamp: new Date(),
+        footer: {
+          icon_url: client.user.avatarURL,
+          text: "ClarkBot"
+        }
+      })
+
+  }
 function firstReq(){
 
   https.get('https://www.reddit.com/r/DonaldClark/random.json', (resp) => {
@@ -221,7 +248,7 @@ message.channel.send({embed: {
     timestamp: new Date(),
     footer: {
       icon_url: client.user.avatarURL,
-      text: "© Example"
+      text: "ClarkBot"
     }
   }
 });

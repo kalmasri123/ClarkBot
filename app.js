@@ -63,7 +63,7 @@ var commands = [{name:"%help",value:"**Pulls Up the Smartboard Notes**"},{name:"
         }
       })
 
-  }
+  }}
 function firstReq(){
 
   https.get('https://www.reddit.com/r/DonaldClark/random.json', (resp) => {

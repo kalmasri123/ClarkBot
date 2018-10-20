@@ -17,7 +17,7 @@ var url = 	process.env.MONGODB_URI
 
 module.exports={
 
-addBless:function(id){
+addBless:function(id,nickN){
 
 MongoClient.connect(url, function(err, db) {
 
@@ -34,7 +34,7 @@ MongoClient.connect(url, function(err, db) {
 
 
 if(blessings.length==0){
-var myobj={user:id,score:0}
+var myobj={user:id,score:0,name:nickN}
 
   dbo.collection("blessingCounter").insertOne(myobj, function(err, res) {
     if (err) throw err;

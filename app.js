@@ -61,9 +61,9 @@ var commands = [{name:"%help",value:"**Pulls Up the Smartboard Notes**"},{name:"
           icon_url: client.user.avatarURL,
           text: "ClarkBot"
         }
-      })
+  }    })
 
-  }}
+  }
 function firstReq(){
 
   https.get('https://www.reddit.com/r/DonaldClark/random.json', (resp) => {

@@ -40,7 +40,7 @@ client.on('message', message => {
 
   let names = ["Baylor Meritt", "Hunter Blythe", "Mark Mikhail", "Grace Brydge", "Anna Morris"]
   let randomizer = Math.random(0, names.length)
-var commands = [{name:"%help",value:"**Pulls Up the Smartboard Notes**"},{name:"%clark",value:"**Gives Fashion Advice with the Consultation of" +${names[Math.floor(Math.random() * Math.floor(messages.length-1))]}+"**"},{name:"%scoreboard",value:"Gives the Very Very Best Students"},
+var commands = [{name:"%help",value:"**Pulls Up the Smartboard Notes**"},{name:"%clark",value:"**Gives Fashion Advice with the Consultation of" +names[Math.floor(Math.random() * Math.floor(names.length-1))]+"**"},{name:"%scoreboard",value:"Gives the Very Very Best Students"},
 {name:"bless",value:"**Applies a Blessing Towards a Person who Splattered their Brain on my Wall as Compensation**"}]
 
   if(args[0]=="%help"){

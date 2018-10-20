@@ -14,7 +14,10 @@ var scorekeeper=require("./blessings.json")
 
 
 var scorekeeping=require('./scorekeeping')
-
+client.on('ready',()=>{
+  
+  client.user.setActivity('POP TEST GRADING SIMULATOR', { type: 'PLAYING' });
+  })
 
   client.on('presenceUpdate',(oldMember,newMember)=>{
 if(newMember.presence.game){

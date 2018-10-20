@@ -47,7 +47,7 @@ var myobj={user:id,score:0,name:nickN}
 
 console.log(blessings[0])
 dbo.collection("blessingCounter").find({user:id}).toArray(function(err, blessings) {
-  var newvalues = { $set: { score:blessings[0].score+1 } };
+  var newvalues = { $set: { score:blessings[0].score+1,name:nickN} };
   dbo.collection("blessingCounter").updateOne({user:id}, newvalues, function(err, res) {
       if (err) throw err;
 

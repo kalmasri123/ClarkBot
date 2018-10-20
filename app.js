@@ -55,7 +55,7 @@ var commands = [{name:"%help",value:"**Pulls Up the Smartboard Notes**"},{name:"
         title: "**Smartboard Notes**",
         url: "",
         description: "It's On RenWeb",
-        fields:,
+        fields:commands,
         timestamp: new Date(),
         footer: {
           icon_url: client.user.avatarURL,

@@ -229,7 +229,6 @@ i=0;
 console.log(blessings)
 for(var key in blessings){
 console.log(key)
-console.log(message.guild.members.get(blessings[key].user).user.username)
 
 field[i]={name:blessings[key].name.toString(),value:blessings[key].score.toString()}
 

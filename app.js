@@ -177,7 +177,7 @@ message.reply("**Bless You, My Child!**")
 
 
 if(message.mentions){
-scorekeeping.addBless(message.mentions.members.first().id,message.mentions.members.first().user.username)
+scorekeeping.addBless(message.mentions.members.first().id,message.mentions.members.first().nickname)
 
 
 
@@ -231,7 +231,7 @@ for(var key in blessings){
 console.log(key)
 console.log(message.guild.members.get(blessings[key].user).user.username)
 
-field[i]={name:blessings[key].name,value:blessings[key].score.toString()}
+field[i]={name:blessings[key].name.toString(),value:blessings[key].score.toString()}
 
 i++
 }

@@ -25,7 +25,7 @@ if(newMember.presence.game){
 oldMember.sendMessage("**Taking Ten Minutes out of Fortnite will lead to Better grades on your Pop Test**")
 
 }
-console.log(newMember.presence.game.name)
+
 
 
 }
@@ -79,7 +79,7 @@ function firstReq(){
       resp.on('end', () => {
 
           let url = resp.headers.location;
-console.log(data)
+
 
 secondReq(url)
 
@@ -124,7 +124,7 @@ firstReq()
 
       //  whole response has been received. Print out the result.
       res.on('end', () => {
-        console.log(!JSON.parse(data)[0].data.children[0].data.url.endsWith('.jpg'))
+
 if(!JSON.parse(data)[0].data.children[0].data.url.endsWith('.jpg')){
 
 
@@ -226,9 +226,9 @@ MongoClient.connect(url, function(err, db) {
 i=0;
 
       dbo.collection("blessingCounter").find({}).toArray(function(err, blessings) {
-console.log(blessings)
+console.log(blessings[key].name)
 for(var key in blessings){
-console.log(key)
+
 
 field[i]={name:blessings[key].name.toString(),value:blessings[key].score.toString()}
 

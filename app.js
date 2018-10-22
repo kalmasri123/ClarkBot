@@ -165,13 +165,13 @@ if(args[0]=="%bless"){
 
 if(args.length>2||args.length<2){
 
- message.reply("**Two Words Only**")
+ message.channel.send("**Two Words Only**")
 
 
 }else{
 
 //Correct Args.length
-message.reply("**Bless You, My Child!**")
+message.channel.send("**Bless You, My Child!**")
 
 
 

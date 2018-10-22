@@ -228,7 +228,7 @@ i=0;
       dbo.collection("blessingCounter").find({}).toArray(function(err, blessings) {
 
 for(var key in blessings){
-console.log(blessings[key].name)
+
 
 field[i]={name:blessings[key].name.toString(),value:blessings[key].score.toString()}
 

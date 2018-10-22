@@ -17,7 +17,7 @@ var url = 	process.env.MONGODB_URI
 
 module.exports={
 
-addBless:function(id,nickN){
+addBless:function(id){
 
 MongoClient.connect(url, function(err, db) {
 

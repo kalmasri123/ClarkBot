@@ -177,7 +177,7 @@ message.channel.send("**Bless You, My Child!**")
 
 
 if(message.mentions){
-scorekeeping.addBless(message.mentions.members.first().id,message.mentions.members.first().nickname)
+scorekeeping.addBless(message.mentions.members.first().id,message.mentions.members.first().user.username)
 
 
 

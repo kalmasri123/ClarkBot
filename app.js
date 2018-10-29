@@ -102,7 +102,7 @@ secondReq(url)
 
   const random = Math.random(0, messages.length)
 
-        message.channel.send(messages[Math.floor(Math.random() * Math.floor(messages.length-1))]);
+        
 firstReq()
     }
 
@@ -134,7 +134,7 @@ firstReq()
 
 }else
 {
-
+message.channel.send(JSON.parse(data)[0].data.children[0].data.title)
 message.channel.send( JSON.parse(data)[0].data.children[0].data.url)
 console.log("Hello")
 }

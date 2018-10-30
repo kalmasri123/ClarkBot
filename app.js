@@ -134,7 +134,7 @@ firstReq()
 
 }else
 
-message.channel.send("**"+JSON.parse(data)[0].data.children[0].data.title+"\n"+JSON.parse(data)[0].data.children[0].data.url+"**")
+message.channel.send("**"+JSON.parse(data)[0].data.children[0].data.title+"**\n"+JSON.parse(data)[0].data.children[0].data.url)
 console.log("Hello")
 }
 

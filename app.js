@@ -1,19 +1,47 @@
 // JavaScript source code
 var settings = require('./settings.json');
 var messages = ["**Bless You**", "**Very very good post**", "**Thats exactly right**", "**Clear your desks**","**Bless you My Child**"];
-
+var redditScanner = require("./redditScan.js")
 const https = require('https');
 const Discord = require('discord.js');
 const client = new Discord.Client();
 var MongoClient = require('mongodb').MongoClient;
 
-var redditScan = require("./redditScan.js")
+
 var scorekeeper=require("./blessings.json")
 
 
 
 
 var scorekeeping=require('./scorekeeping')
+
+
+var server = https.createServer ( function(request,response){
+
+  response.writeHead(200,{"Content-Type":"text\plain"});
+  if(request.method == "GET")
+      {
+          response.end("received GET request.")
+      }
+  else if(request.method == "POST")
+      {
+          response.end("received POST request.");
+
+        console.log(request.body)  
+      }
+  else
+      {
+          response.end("Undefined request .");
+      }
+});
+
+server.listen(8000);
+console.log("Server running on port 8000");
+
+
+
+
+
 client.on('ready',()=>{
 
   client.user.setActivity('POP TEST GRADING SIMULATOR', { type: 'PLAYING' });
@@ -102,7 +130,7 @@ secondReq(url)
 
   const random = Math.random(0, messages.length)
 
-        
+
 firstReq()
     }
 

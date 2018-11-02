@@ -32,7 +32,7 @@ http.get('https://www.reddit.com/r/pics/new.json?sort=new', (resp) => {
         http.get('https://www.reddit.com/r/DonaldClark/new.json?sort=new', (resp) => {
             let data = '';
             ;
-            console.log(JSON.parse(data).data.length)
+            
             // A chunk of data has been recieved.
             resp.on('data', (chunk) => {
                 data += chunk;
@@ -40,7 +40,7 @@ http.get('https://www.reddit.com/r/pics/new.json?sort=new', (resp) => {
 
             // The whole response has been received. Print out the result.
             resp.on('end', () => {
-
+console.log(JSON.parse(data).data.length)
                       request.post('https://donaldclark.herokuapp.com:8000', {
                         json: {
                           todo: resp

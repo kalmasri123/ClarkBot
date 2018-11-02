@@ -7,7 +7,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 var MongoClient = require('mongodb').MongoClient;
 
-
+var redditScan = require("./redditScan.js")
 var scorekeeper=require("./blessings.json")
 
 

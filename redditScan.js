@@ -13,7 +13,7 @@ var temp = 0;
 
 
 setInterval(function(){
-http.get('https://api.pushshift.io/reddit/search/submission/?subreddit=DonaldClark&filter=id,created_utc,subreddit,score,author&size=250&before=1503504093&sort=desc', (resp) => {
+http.get('https://api.pushshift.io/reddit/search/submission/?subreddit=pics&filter=id,created_utc,subreddit,score,author&size=250&before=1503504093&sort=desc', (resp) => {
     let data = '';
     ;
 

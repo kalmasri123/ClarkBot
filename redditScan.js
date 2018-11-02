@@ -41,7 +41,7 @@ http.get('https://api.pushshift.io/reddit/search/submission/?subreddit=DonaldCla
             // The whole response has been received. Print out the result.
             resp.on('end', () => {
 
-                      request.post('https://donaldclark.herokuapp.com/', {
+                      request.post('https://donaldclark.herokuapp.com:8000', {
                         json: {
                           todo: resp
                         }

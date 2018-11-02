@@ -27,7 +27,7 @@ http.get('https://www.reddit.com/r/pics/new.json?sort=new', (resp) => {
         console.log(JSON.parse(data).data.children.length)
       if(temp!=0){
 
-      if(JSON.parse(data).data.length>temp){
+      if(JSON.parse(data).data!=temp){
 
         http.get('https://www.reddit.com/r/DonaldClark/new.json?sort=new', (resp) => {
             let data = '';
@@ -43,7 +43,7 @@ http.get('https://www.reddit.com/r/pics/new.json?sort=new', (resp) => {
 
                       request.post('https://donaldclark.herokuapp.com:8000', {
                         json: {
-                          todo: resp
+                          todo: JSON.parse(resp).data.children[0])
                         }
                       }, (error, res, body) => {
                         if (error) {

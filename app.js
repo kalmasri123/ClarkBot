@@ -16,7 +16,7 @@ var scorekeeper=require("./blessings.json")
 var scorekeeping=require('./scorekeeping')
 
 
-var server = https.createServer ( function(request,response){
+/*var server = https.createServer ( function(request,response){
 
   response.writeHead(200,{"Content-Type":"text\plain"});
   if(request.method == "GET")
@@ -38,7 +38,7 @@ var server = https.createServer ( function(request,response){
 server.listen(8000);
 console.log("Server running on port 8000");
 
-
+*/
 
 
 

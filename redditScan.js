@@ -24,7 +24,7 @@ http.get('https://www.reddit.com/r/pics/new.json?sort=new', (resp) => {
 
     // The whole response has been received. Print out the result.
     resp.on('end', () => {
-
+        console.log(JSON.parse(data).data.length)
       if(temp!=0){
 
       if(JSON.parse(data).data.length>temp){
@@ -40,7 +40,7 @@ http.get('https://www.reddit.com/r/pics/new.json?sort=new', (resp) => {
 
             // The whole response has been received. Print out the result.
             resp.on('end', () => {
-console.log(JSON.parse(data).data.length)
+
                       request.post('https://donaldclark.herokuapp.com:8000', {
                         json: {
                           todo: resp

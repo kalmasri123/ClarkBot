@@ -1,7 +1,7 @@
 // JavaScript source code
 var settings = require('./settings.json');
 var messages = ["**Bless You**", "**Very very good post**", "**Thats exactly right**", "**Clear your desks**","**Bless you My Child**"];
-var redditScanner = require("./redditScan.js")
+//var redditScanner = require("./redditScan.js")
 const https = require('https');
 const Discord = require('discord.js');
 const client = new Discord.Client();

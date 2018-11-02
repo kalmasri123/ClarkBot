@@ -13,7 +13,7 @@ var temp = 0;
 
 
 setInterval(function(){
-http.get('https://api.pushshift.io/reddit/search/submission/?subreddit=pics&filter=id,created_utc,subreddit,score,author&size=250&before=1503504093&sort=desc', (resp) => {
+http.get('https://www.reddit.com/r/pics/new.json?sort=new', (resp) => {
     let data = '';
     ;
 
@@ -41,7 +41,7 @@ http.get('https://api.pushshift.io/reddit/search/submission/?subreddit=pics&filt
             // The whole response has been received. Print out the result.
             resp.on('end', () => {
 
-                      request.post('https://donaldclark.herokuapp.com:8000', {
+                      request.post('https://donaldclark.herokuapp.com/', {
                         json: {
                           todo: resp
                         }

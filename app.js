@@ -19,7 +19,7 @@ redditScanner.em.on('newReddit',function(link){
 
     
     try {
-          let toSay = "NEW VERY VERY GOOD POST:\n"+"https://reddit.com"+link
+          let toSay = "**THE STUDY GUIDE IS NOW COMPLETE**:\n"+"https://reddit.com"+link
           client.guilds.map((guild) => {
             let found = 0
             guild.channels.map((c) => {

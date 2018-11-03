@@ -6,76 +6,51 @@ const http = require('https')
 
 
 
-var temp = 0;
+var temp;
 
 
 
 
 
-setInterval(function(){
-http.get('https://www.reddit.com/r/pics/new.json?sort=new', (resp) => {
-    let data = '';
-    ;
+setInterval(function() {
+  http.get('https://www.reddit.com/r/KudeemTest/new.json?sort=new', (resp) => {
+    let data = '';;
 
     // A chunk of data has been recieved.
     resp.on('data', (chunk) => {
-        data += chunk;
+      data += chunk;
     });
 
     // The whole response has been received. Print out the result.
     resp.on('end', () => {
-        console.log(JSON.parse(data).data.children.length)
-      if(temp!=0){
+      console.log(JSON.parse(data).data.children[0].data.permalink)
+      if (temp) {
 
-      if(JSON.parse(data).data!=temp){
+        if (JSON.parse(data).data.children[0].data.permalink != temp) {
 
-        http.get('https://www.reddit.com/r/DonaldClark/new.json?sort=new', (resp) => {
-            let data = '';
-            ;
-            
-            // A chunk of data has been recieved.
-            resp.on('data', (chunk) => {
-                data += chunk;
-            });
+          temp = JSON.parse(data).data.children[0].data.permalink
 
-            // The whole response has been received. Print out the result.
-            resp.on('end', () => {
-
-                      request.post('https://donaldclark.herokuapp.com:8000', {
-                        json: {
-                          todo: JSON.parse(resp).data.children[0])
-                        }
-                      }, (error, res, body) => {
-                        if (error) {
-                          console.error(error)
-                          return
-                        }
-                        console.log(`statusCode: ${res.statusCode}`)
-                        console.log(body)
-                      })
+          // The whole response has been received. Print out the result.
 
 
-
-              temp = JSON.parse(data).data.length
-
-            });
-
-
-
-        })
+          request.post({
+      url: "http://localhost:8000/",
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({"longUrl": "http://www.google.com/"})
+      });
 
 
 
 
+
+
+        } else {}
+        temp = JSON.parse(data).data.children[0].data.permalink
+      } else {
+
+        temp = JSON.parse(data).data.children[0].data.permalink
 
       }
-
-      temp = JSON.parse(data).data.length
-}else{
-
-  temp=JSON.parse(data).data.length
-
-}
 
 
 
@@ -83,6 +58,5 @@ http.get('https://www.reddit.com/r/pics/new.json?sort=new', (resp) => {
 
 
 
-})
-},1000
-)
+  })
+}, 1000)

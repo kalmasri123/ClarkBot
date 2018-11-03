@@ -1,7 +1,7 @@
 // JavaScript source code
 var settings = require('./settings.json');
 var messages = ["**Bless You**", "**Very very good post**", "**Thats exactly right**", "**Clear your desks**","**Bless you My Child**"];
-//var redditScanner = require("./redditScan.js")
+var redditScanner = require("./redditScan.js")
 const https = require('https');
 const Discord = require('discord.js');
 const client = new Discord.Client();
@@ -16,7 +16,7 @@ var scorekeeper=require("./blessings.json")
 var scorekeeping=require('./scorekeeping')
 
 
-/*var server = https.createServer ( function(request,response){
+var server = https.createServer ( function(request,response){
 
   response.writeHead(200,{"Content-Type":"text\plain"});
   if(request.method == "GET")
@@ -25,9 +25,10 @@ var scorekeeping=require('./scorekeeping')
       }
   else if(request.method == "POST")
       {
+        console.log(request.body)
           response.end("received POST request.");
 
-        console.log(request.body)  
+
       }
   else
       {
@@ -38,7 +39,7 @@ var scorekeeping=require('./scorekeeping')
 server.listen(8000);
 console.log("Server running on port 8000");
 
-*/
+
 
 
 
@@ -293,7 +294,7 @@ message.channel.send({embed: {
 
 }
 })
-client.login(process.env.token)
+client.login("MjkyMDI2ODc5ODE5MzgyNzg0.Dr99Vw.vz4IEUSsTadnHbwhNC9IIodfk_M")
 /*
  * Uhhhhh very very gud
  * bless you

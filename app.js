@@ -18,15 +18,15 @@ var scorekeeping=require('./scorekeeping')
 redditScanner.em.on('newReddit',function(link){
 
     
-  try {
+    try {
           let toSay = "NEW VERY VERY GOOD POST:\n"+"https://reddit.com"+link
           client.guilds.map((guild) => {
             let found = 0
             guild.channels.map((c) => {
               if (found === 0) {
                 if (c.type === "text") {
-                  if (c.permissionsFor(this.client.user).has("VIEW_CHANNEL") === true) {
-                    if (c.permissionsFor(this.client.user).has("SEND_MESSAGES") === true) {
+                  if (c.permissionsFor(client.user).has("VIEW_CHANNEL") === true) {
+                    if (c.permissionsFor(client.user).has("SEND_MESSAGES") === true) {
                       c.send(toSay);
                       found = 1;
                     }
@@ -37,8 +37,9 @@ redditScanner.em.on('newReddit',function(link){
           });
         }
         catch (err) {
-          console.log("Could not send message to a (few) guild(s)!");
+          console.log(err);
         }
+
 
   })
 

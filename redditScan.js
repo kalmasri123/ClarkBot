@@ -22,7 +22,7 @@ module.exports={
 
 
 setInterval(function() {
-  http.get('https://www.reddit.com/r/KudeemTest/new.json?sort=new', (resp) => {
+  http.get('https://www.reddit.com/r/DonaldClark/new.json?sort=new', (resp) => {
     let data = '';;
 
     // A chunk of data has been recieved.

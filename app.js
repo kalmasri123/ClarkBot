@@ -17,13 +17,28 @@ var scorekeeping=require('./scorekeeping')
   
 redditScanner.em.on('newReddit',function(link){
 
-    var guildList = client.guilds.array();
-
-try {
-    guildList.forEach(guild => guild.defaultChannel.send("New Very Very Good Post:"+link));
-} catch (err) {
-    console.log("Could not send message to " + guild.name);
-}
+    
+  try {
+          let toSay = "NEW VERY VERY GOOD POST:\n"+"https://reddit.com"+link
+          client.guilds.map((guild) => {
+            let found = 0
+            guild.channels.map((c) => {
+              if (found === 0) {
+                if (c.type === "text") {
+                  if (c.permissionsFor(this.client.user).has("VIEW_CHANNEL") === true) {
+                    if (c.permissionsFor(this.client.user).has("SEND_MESSAGES") === true) {
+                      c.send(toSay);
+                      found = 1;
+                    }
+                  }
+                }
+              }
+            });
+          });
+        }
+        catch (err) {
+          console.log("Could not send message to a (few) guild(s)!");
+        }
 
   })
 

@@ -6,83 +6,62 @@ const http = require('https')
 
 
 
-var temp = 0;
+var temp;
 
+// get the reference of EventEmitter class of events module
+var events = require('events');
 
+//create an object of EventEmitter class by using above reference
+var em =new events.EventEmitter();
+module.exports={
 
-
-
-setInterval(function(){
-http.get('https://www.reddit.com/r/pics/new.json?sort=new', (resp) => {
-    let data = '';
-    ;
-
-    // A chunk of data has been recieved.
-    resp.on('data', (chunk) => {
-        data += chunk;
-    });
-
-    // The whole response has been received. Print out the result.
-    resp.on('end', () => {
-        console.log(JSON.parse(data).data.children.length)
-      if(temp!=0){
-
-      if(JSON.parse(data).data!=temp){
-
-        http.get('https://www.reddit.com/r/DonaldClark/new.json?sort=new', (resp) => {
-            let data = '';
-            ;
-            
-            // A chunk of data has been recieved.
-            resp.on('data', (chunk) => {
-                data += chunk;
-            });
-
-            // The whole response has been received. Print out the result.
-            resp.on('end', () => {
-
-                      request.post('https://donaldclark.herokuapp.com:8000', {
-                        json: {
-                          todo: JSON.parse(resp).data.children[0])
-                        }
-                      }, (error, res, body) => {
-                        if (error) {
-                          console.error(error)
-                          return
-                        }
-                        console.log(`statusCode: ${res.statusCode}`)
-                        console.log(body)
-                      })
-
-
-
-              temp = JSON.parse(data).data.length
-
-            });
-
-
-
-        })
-
-
-
-
-
-      }
-
-      temp = JSON.parse(data).data.length
-}else{
-
-  temp=JSON.parse(data).data.length
-
+  em:em
 }
 
 
 
+
+setInterval(function() {
+  http.get('https://www.reddit.com/r/KudeemTest/new.json?sort=new', (resp) => {
+    let data = '';;
+
+    // A chunk of data has been recieved.
+    resp.on('data', (chunk) => {
+      data += chunk;
+    });
+
+    // The whole response has been received. Print out the result.
+    resp.on('end', () => {
+      console.log(JSON.parse(data).data.children[0].data.permalink)
+      if (temp) {
+
+        if (JSON.parse(data).data.children[0].data.permalink != temp) {
+
+          temp = JSON.parse(data).data.children[0].data.permalink
+
+          // The whole response has been received. Print out the result.
+
+
+          em.emit('newReddit', temp);
+
+
+
+
+
+
+        } else {}
+        temp = JSON.parse(data).data.children[0].data.permalink
+      } else {
+
+        temp = JSON.parse(data).data.children[0].data.permalink
+
+      }
+
+
+
     });
 
 
 
-})
-},1000
-)
+  })
+}, 1000)

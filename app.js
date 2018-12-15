@@ -1,7 +1,7 @@
 // JavaScript source code
 var settings = require('./settings.json');
 var messages = ["**Bless You**", "**Very very good post**", "**Thats exactly right**", "**Clear your desks**","**Bless you My Child**"];
-var redditScanner = require("./redditScan.js")
+//var redditScanner = require("./redditScan.js")
 const https = require('https');
 const Discord = require('discord.js');
 const client = new Discord.Client();
@@ -15,7 +15,7 @@ var scorekeeper=require("./blessings.json")
 
 var scorekeeping=require('./scorekeeping')
   
-redditScanner.em.on('newReddit',function(link){
+/*redditScanner.em.on('newReddit',function(link){
 
     
     try {
@@ -41,7 +41,7 @@ redditScanner.em.on('newReddit',function(link){
         }
 
 
-  })
+  })*/
 
 /*var server = https.createServer ( function(request,response){
 

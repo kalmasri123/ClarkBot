@@ -5,11 +5,7 @@ const {
 } = require('querystring');
 const app = require('./app.js')
 //create an object of EventEmitter class by using above reference
-var em = new events.EventEmitter();
-module.exports = {
-
-  em: em
-}
+const eventHandler = require('./eventHandler')
 const server = http.createServer((req, res) => {
   if (req.method === 'POST') {
     collectRequestData(req, result => {
@@ -26,7 +22,7 @@ const server = http.createServer((req, res) => {
                 </body>
                 </html>
             `);
-      em.emit('globalMessage', result.fname);
+      eventHandler.em.emit('globalMessage', result.fname);
 
     });
   } else {

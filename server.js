@@ -38,7 +38,7 @@ const server = http.createServer((req, res) => {
         `);
   }
 });
-server.listen(3000);
+server.listen(process.env.PORT || 5000);
 
 function collectRequestData(request, callback) {
   const FORM_URLENCODED = 'application/x-www-form-urlencoded';

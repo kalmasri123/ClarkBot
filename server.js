@@ -3,7 +3,7 @@ const events = require('events')
 const {
   parse
 } = require('querystring');
-const app = require('./app.js)
+const app = require('./app.js')
 //create an object of EventEmitter class by using above reference
 var em = new events.EventEmitter();
 module.exports = {

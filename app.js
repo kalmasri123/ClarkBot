@@ -9,8 +9,8 @@ var MongoClient = require('mongodb').MongoClient;
 var scorekeeping=require('./scorekeeping')
 const eventHandler = require("./eventHandler.js")
 var scorekeeper=require("./blessings.json")
-
-eventHandler.em.on('globalMessage',message=>{
+var server = require('./server.js')
+server.em.on('globalMessage',message=>{
   console.log("Hello")
   let toSay = message;
   client.guilds.map((guild) => {

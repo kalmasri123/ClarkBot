@@ -26,7 +26,7 @@ const server = http.createServer((req, res) => {
                 </body>
                 </html>
             `);
-      server.em.emit('globalMessage', result.fname);
+      em.emit('globalMessage', result.fname);
 
     });
   } else {

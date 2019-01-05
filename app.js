@@ -6,42 +6,34 @@ const https = require('https');
 const Discord = require('discord.js');
 const client = new Discord.Client();
 var MongoClient = require('mongodb').MongoClient;
+var scorekeeping=require('./scorekeeping')
+var server = require('./server.js')
 
 
 var scorekeeper=require("./blessings.json")
 
-
-
-
-var scorekeeping=require('./scorekeeping')
-  
-/*redditScanner.em.on('newReddit',function(link){
-
-    
-    try {
-          let toSay = "**THE STUDY GUIDE IS NOW COMPLETE**:\n"+"https://reddit.com"+link
-          client.guilds.map((guild) => {
-            let found = 0
-            guild.channels.map((c) => {
-              if (found === 0) {
-                if (c.type === "text") {
-                  if (c.permissionsFor(client.user).has("VIEW_CHANNEL") === true) {
-                    if (c.permissionsFor(client.user).has("SEND_MESSAGES") === true) {
-                      c.send(toSay);
-                      found = 1;
-                    }
-                  }
-                }
-              }
-            });
-          });
+server.em.on('globalMessage',message=>{
+  let toSay = message;
+  client.guilds.map((guild) => {
+    let found = 0
+    guild.channels.map((c) => {
+      if (found === 0) {
+        if (c.type === "text") {
+          if (c.permissionsFor(client.user).has("VIEW_CHANNEL") === true) {
+            if (c.permissionsFor(client.user).has("SEND_MESSAGES") === true) {
+              c.send(toSay);
+              found = 1;
+            }
+          }
         }
-        catch (err) {
-          console.log(err);
-        }
+      }
+    });
+  });
+})
 
 
-  })*/
+
+
 
 /*var server = https.createServer ( function(request,response){
 
@@ -54,7 +46,7 @@ var scorekeeping=require('./scorekeeping')
       {
           response.end("received POST request.");
 
-        console.log(request.body)  
+        console.log(request.body)
       }
   else
       {
@@ -90,12 +82,13 @@ oldMember.sendMessage("**Taking Ten Minutes out of Fortnite will lead to Better 
 
 
   })
+
 client.on('message', message => {
   let args= message.content.split(" ")
 
   let names = ["Baylor Meritt", "Hunter Blythe", "Mark Mikhail", "Grace Brydge", "Anna Morris","Thomas Grubb"]
   let randomizer = Math.random(0, names.length)
-var commands = [{name:"%help",value:"**Pulls Up the Smartboard Notes**"},{name:"%clark",value:"**Gives Fashion Advice with the Consultation of " +names[Math.floor(Math.random() * Math.floor(names.length-1))]+"**"},{name:"%scoreboard",value:"Gives the Very Very Best Students"},
+  var commands = [{name:"%help",value:"**Pulls Up the Smartboard Notes**"},{name:"%clark",value:"**Gives Fashion Advice with the Consultation of " +names[Math.floor(Math.random() * Math.floor(names.length-1))]+"**"},{name:"%scoreboard",value:"Gives the Very Very Best Students"},
 {name:"bless",value:"**Applies a Blessing Towards a Person who Splattered their Brain on my Wall as Compensation**"}]
 
   if(args[0]=="%help"){

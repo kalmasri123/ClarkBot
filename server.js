@@ -1,4 +1,5 @@
 const http = require('http');
+const events = require('events')
 const {
   parse
 } = require('querystring');

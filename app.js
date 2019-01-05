@@ -7,12 +7,11 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 var MongoClient = require('mongodb').MongoClient;
 var scorekeeping=require('./scorekeeping')
-var server = require('./server.js')
-
-
+const eventHandler = require("./eventHandler.js")
 var scorekeeper=require("./blessings.json")
 
-server.em.on('globalMessage',message=>{
+eventHandler.em.on('globalMessage',message=>{
+  console.log("Hello")
   let toSay = message;
   client.guilds.map((guild) => {
     let found = 0

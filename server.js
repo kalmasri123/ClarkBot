@@ -60,6 +60,5 @@ function collectRequestData(request, callback) {
     callback(null);
   }
 }
-var events = require('events');
 
 

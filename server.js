@@ -2,8 +2,13 @@ const http = require('http');
 const {
   parse
 } = require('querystring');
-const eventHandler = require("./eventHandler.js")
 
+//create an object of EventEmitter class by using above reference
+var em = new events.EventEmitter();
+module.exports = {
+
+  em: em
+}
 const server = http.createServer((req, res) => {
   if (req.method === 'POST') {
     collectRequestData(req, result => {
@@ -20,7 +25,7 @@ const server = http.createServer((req, res) => {
                 </body>
                 </html>
             `);
-      eventHandler.em.emit('globalMessage', result.fname);
+      server.em.emit('globalMessage', result.fname);
 
     });
   } else {
@@ -56,9 +61,4 @@ function collectRequestData(request, callback) {
 }
 var events = require('events');
 
-//create an object of EventEmitter class by using above reference
-var em = new events.EventEmitter();
-module.exports = {
 
-  em: em
-}

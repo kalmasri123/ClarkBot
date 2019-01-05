@@ -9,7 +9,7 @@ var MongoClient = require('mongodb').MongoClient;
 var scorekeeping=require('./scorekeeping')
 const eventHandler = require("./eventHandler.js")
 var scorekeeper=require("./blessings.json")
-const eventHandler = require('./eventHandler')
+
 eventHandler.em.on('globalMessage',message=>{
   console.log("Hello")
   let toSay = message;

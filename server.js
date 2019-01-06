@@ -29,7 +29,8 @@ const server = http.createServer((req, res) => {
     });
   } else {
     var queryData = url.parse(req.url,true).query
-    if(!queryData.key)  {res.end(`
+    if(!queryData.key)  {
+      res.end(`
             <!doctype html>
             <html>
             <body>
@@ -38,7 +39,7 @@ const server = http.createServer((req, res) => {
             </body>
             </html>
         `)}
-    else if(!(queryData.key=="KUDEEMDOHOMWOK")
+    else if(!(queryData.key=="KUDEEMDOHOMWOK"))
     {res.end(`
               <!doctype html>
               <html>

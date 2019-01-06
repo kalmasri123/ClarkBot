@@ -29,7 +29,24 @@ const server = http.createServer((req, res) => {
     });
   } else {
     var queryData = url.parse(req.url,true).query
-    console.log(queryData)
+    if(!queryData.key) return res.end(`
+            <!doctype html>
+            <html>
+            <body>
+              <h1>ACCESS DENIED. NO KEY</h1>
+                </form>
+            </body>
+            </html>
+        `)
+    if(!(queryData.key=="KUDEEMDOHOMWOK") return   res.end(`
+              <!doctype html>
+              <html>
+              <body>
+                <h1>ACCESS DENIED. WRONG KEY</h1>
+                  </form>
+              </body>
+              </html>
+          `);
     res.end(`
             <!doctype html>
             <html>

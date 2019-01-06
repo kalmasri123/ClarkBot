@@ -28,7 +28,7 @@ const server = http.createServer((req, res) => {
 
     });
   } else {
-    var queryData = url.parse(request.url,true).query
+    var queryData = url.parse(req.url,true).query
     console.log(queryData)
     res.end(`
             <!doctype html>

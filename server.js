@@ -26,6 +26,7 @@ const server = http.createServer((req, res) => {
 
     });
   } else {
+    console.log(req.query)
     res.end(`
             <!doctype html>
             <html>
@@ -56,5 +57,3 @@ function collectRequestData(request, callback) {
     callback(null);
   }
 }
-
-

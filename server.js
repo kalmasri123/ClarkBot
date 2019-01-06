@@ -29,7 +29,7 @@ const server = http.createServer((req, res) => {
     });
   } else {
     var queryData = url.parse(req.url,true).query
-    if(!queryData.key) return res.end(`
+    if(!queryData.key)  {res.end(`
             <!doctype html>
             <html>
             <body>
@@ -37,8 +37,9 @@ const server = http.createServer((req, res) => {
                 </form>
             </body>
             </html>
-        `)
-    if(!(queryData.key=="KUDEEMDOHOMWOK") return   res.end(`
+        `)}
+    else if(!(queryData.key=="KUDEEMDOHOMWOK")
+    {res.end(`
               <!doctype html>
               <html>
               <body>
@@ -46,7 +47,8 @@ const server = http.createServer((req, res) => {
                   </form>
               </body>
               </html>
-          `);
+          `);}else{
+
     res.end(`
             <!doctype html>
             <html>
@@ -58,7 +60,7 @@ const server = http.createServer((req, res) => {
                 </form>
             </body>
             </html>
-        `);
+        `);}
   }
 });
 server.listen(process.env.PORT || 5000);

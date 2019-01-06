@@ -26,7 +26,7 @@ const server = http.createServer((req, res) => {
 
     });
   } else {
-    console.log(req.query)
+    console.log(req.headers.query)
     res.end(`
             <!doctype html>
             <html>

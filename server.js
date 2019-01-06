@@ -1,5 +1,7 @@
 const http = require('http');
 const events = require('events')
+const url = require('url')
+
 const {
   parse
 } = require('querystring');
@@ -26,7 +28,8 @@ const server = http.createServer((req, res) => {
 
     });
   } else {
-    console.log(req.headers.query)
+    var queryData = url.parse(request.url,true).query
+    console.log(queryData)
     res.end(`
             <!doctype html>
             <html>

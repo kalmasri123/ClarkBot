@@ -30,6 +30,8 @@ const server = http.createServer((req, res) => {
       eventHandler.em.emit('globalMessage', result.fname);
 
     });
+  }
+})
   } else {
     var queryData = url.parse(req.url,true).query
 

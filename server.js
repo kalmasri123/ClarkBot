@@ -47,7 +47,7 @@ const server = http.createServer((req, res) => {
             </html>
         `);
 
-});
+}
 server.listen(process.env.PORT || 5000);
 
 function collectRequestData(request, callback) {

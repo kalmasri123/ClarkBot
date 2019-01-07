@@ -12,45 +12,41 @@ const server = http.createServer((req, res) => {
   if (req.method === 'POST') {
     collectRequestData(req, result => {
       console.log(result);
+      res.render('ACCESS DENIED')
+      res.end(`
+                <!doctype html>
+                <html>
+                <body>
+                    <form action="/" method="post">
+                        <input type ="password" name="key"/><br />
+                        <input type="text" name="fname" /><br />
+
+                        <button>Save</button>
+                    </form>
+                </body>
+                </html>
+            `);
+
       eventHandler.em.emit('globalMessage', result.fname);
 
     });
   } else {
     var queryData = url.parse(req.url,true).query
-    if(!queryData.key)  {
-      res.end(`
-            <!doctype html>
-            <html>
-            <body>
-              <h1>ACCESS DENIED. NO KEY</h1>
-                </form>
-            </body>
-            </html>
-        `)}
-    else if(!(queryData.key=="KUDEEMDOHOMWOK"))
-    {res.end(`
-              <!doctype html>
-              <html>
-              <body>
-                <h1>ACCESS DENIED. WRONG KEY</h1>
-                  </form>
-              </body>
-              </html>
-          `);}else{
 
     res.end(`
             <!doctype html>
             <html>
             <body>
                 <form action="/" method="post">
+                    <input type ="password" name="key"/><br />
                     <input type="text" name="fname" /><br />
 
                     <button>Save</button>
                 </form>
             </body>
             </html>
-        `);}
-  }
+        `);
+
 });
 server.listen(process.env.PORT || 5000);
 

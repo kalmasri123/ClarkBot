@@ -31,8 +31,8 @@ const server = http.createServer((req, res) => {
 
     });
   }
-})
-  } else {
+
+   else {
     var queryData = url.parse(req.url,true).query
 
     res.end(`
@@ -49,7 +49,7 @@ const server = http.createServer((req, res) => {
             </html>
         `);
 
-}
+}})
 server.listen(process.env.PORT || 5000);
 
 function collectRequestData(request, callback) {

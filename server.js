@@ -12,18 +12,6 @@ const server = http.createServer((req, res) => {
   if (req.method === 'POST') {
     collectRequestData(req, result => {
       console.log(result);
-      res.end(`
-                <!doctype html>
-                <html>
-                <body>
-                    <form action="/" method="post">
-                        <input type="text" name="fname" /><br />
-
-                        <button>Save</button>
-                    </form>
-                </body>
-                </html>
-            `);
       eventHandler.em.emit('globalMessage', result.fname);
 
     });

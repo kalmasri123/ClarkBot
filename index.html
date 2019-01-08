@@ -1,0 +1,29 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $("button").click(function(){
+      $.post('/',
+      {
+      KEY:document.getElementById("key").value
+      },
+      function(data,status){
+        alert("Data: " + data + "\nStatus: " + status);
+        console.log(document.getElementById("key"))
+      });
+    });
+  });
+
+</script>
+
+</head>
+<body>
+  <form>
+    <input id="key" type="password" name="key" placeholder="KEY"><br/>
+    <input type = "text" name = "msg" placeholder="message"/>
+    <button type="button" id="sub">Submit</button>
+    </form>
+  </body>
+
+</html>

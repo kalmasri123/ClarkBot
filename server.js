@@ -1,68 +1,29 @@
 const http = require('http');
-const events = require('events')
-const url = require('url')
-
+const express = require('express')
 const {
   parse
 } = require('querystring');
-const app = require('./app.js')
-//create an object of EventEmitter class by using above reference
-const eventHandler = require('./eventHandler')
-const server = http.createServer((req, res) => {
-  if (req.method === 'POST') {
-    collectRequestData(req, result => {
-      console.log(result);
-      res.render('ACCESS DENIED')
-      res.end(`
-                <!doctype html>
-                <html>
-                <body>
-                    <form action="/" method="post">
-                        <input type ="password" name="key"/><br />
-                        <input type="text" name="fname" /><br />
 
-                        <button>Save</button>
-                    </form>
-                </body>
-                </html>
-            `);
+const eventHandler = require("./eventHandler.js")
+//const bot = require('./app.js')
+const server = express()
+var path = require('path')
+var bodyParser = require('body-parser');
+server.use(bodyParser.json()); // support json encoded bodies
+server.use(bodyParser.urlencoded({ extended: true }));
 
-      eventHandler.em.emit('globalMessage', result.fname);
 
-    });
-  }
-
-   else {
-    var queryData = url.parse(req.url,true).query
-
-    res.end(`
-            <!doctype html>
-            <html>
-            <body>
-                <form action="/" method="post">
-                    <input type ="password" name="key"/><br />
-                    <input type="text" name="fname" /><br />
-
-                    <button>Save</button>
-                </form>
-            </body>
-            </html>
-        `);
-
-}})
-server.listen(process.env.PORT || 5000);
-
-function collectRequestData(request, callback) {
-  const FORM_URLENCODED = 'application/x-www-form-urlencoded';
-  if (request.headers['content-type'] === FORM_URLENCODED) {
-    let body = '';
-    request.on('data', chunk => {
-      body += chunk.toString();
-    });
-    request.on('end', () => {
-      callback(parse(body));
-    });
-  } else {
-    callback(null);
-  }
+server.get('/',function(req,res){
+  res.sendFile(path.join(__dirname+'/index.html'))
+})
+const data = {
+  'KEY':'KUDEEMDOHOMWOK'
 }
+
+server.post('/',function(req,res)
+{
+const post = req.body;
+console.log(post)
+
+})
+server.listen(3000);

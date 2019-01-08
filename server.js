@@ -19,7 +19,7 @@ server.get('/', function(req, res) {
   res.sendFile(path.join(__dirname + '/index.html'))
 })
 const data = {
-  'KEY': 'KUDEEMDOHOMWOK'
+  'KEY': 'VERVERGOOD'
 }
 
 server.post('/', function(req, res) {

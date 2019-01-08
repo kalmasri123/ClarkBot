@@ -6,11 +6,20 @@
     $("button").click(function(){
       $.post('/',
       {
-      KEY:document.getElementById("key").value
+      KEY:document.getElementById("key").value,
+      MSG:document.getElementById("message").value
       },
       function(data,status){
-        alert("Data: " + data + "\nStatus: " + status);
-        console.log(document.getElementById("key"))
+        if(data=="GRANTED")
+        {
+          $("#responseMSG").text="Message Sent!"
+        }else if(data=="DENIED")
+        {
+          $("#responseMSG").text="Message Sent!"
+        }
+        else{
+          $(#responseMSG).text="An Unknown Error Has Occurred"
+        }
       });
     });
   });
@@ -21,9 +30,10 @@
 <body>
   <form>
     <input id="key" type="password" name="key" placeholder="KEY"><br/>
-    <input type = "text" name = "msg" placeholder="message"/>
+    <input id="message" type = "text" name = "msg" placeholder="message"/>
     <button type="button" id="sub">Submit</button>
     </form>
+    <h1 id="responseMSG"></h1>
   </body>
 
 </html>

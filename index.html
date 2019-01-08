@@ -10,6 +10,7 @@
       MSG:document.getElementById("message").value
       },
       function(data,status){
+        console.log(data)
         if(data=="GRANTED")
         {
           $("#responseMSG").innerText="Message Sent!"

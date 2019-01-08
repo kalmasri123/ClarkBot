@@ -12,13 +12,13 @@
       function(data,status){
         if(data=="GRANTED")
         {
-          $("#responseMSG").text="Message Sent!"
+          $("#responseMSG").innerText="Message Sent!"
         }else if(data=="DENIED")
         {
-          $("#responseMSG").text="Message Sent!"
+          $("#responseMSG").innerText="Message Sent!"
         }
         else{
-          $("#responseMSG").text="An Unknown Error Has Occurred"
+          $("#responseMSG").innerText="An Unknown Error Has Occurred"
         }
       });
     });

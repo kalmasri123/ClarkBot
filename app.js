@@ -83,6 +83,7 @@ oldMember.sendMessage("**Taking Ten Minutes out of Fortnite will lead to Better 
   })
 
 client.on('message', message => {
+  if(args[0]=="%scoreboard"||args[0]=="%bless") return message.channel.send("**UHH DISABLED COMMAND**")
   let args= message.content.split(" ")
 
   let names = ["Baylor Meritt", "Hunter Blythe", "Mark Mikhail", "Grace Brydge", "Anna Morris","Thomas Grubb"]

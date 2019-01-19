@@ -24,7 +24,7 @@ const data = {
 
 server.post('/', function(req, res) {
   const post = req.body;
-  if (post.KEY == data.KEY) {
+  if (post.KEY == process.env.key) {
     eventHandler.em.emit('globalMessage', post.MSG)
     res.end("GRANTED")
 

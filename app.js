@@ -67,10 +67,20 @@ client.on('ready',()=>{
 
   client.on('presenceUpdate',(oldMember,newMember)=>{
 if(newMember.presence.game){
-  if(newMember.presence.game.name=="Fortnite"&&oldMember.presence.game.name!="Fortnite"){
+
+  if(!oldMember.presence.game)
+  {
+    if(newMember.presence.game.name=="Fortnite"){
 oldMember.sendMessage("**Taking Ten Minutes out of Fortnite will lead to Better grades on your Pop Test**")
 
 }
+  }else if(oldMember.presence.game)
+  {
+      if(newMember.presence.game.name=="Fortnite"&&oldMember.presence.game.name!="Fortnite"){
+oldMember.sendMessage("**Taking Ten Minutes out of Fortnite will lead to Better grades on your Pop Test**")
+
+}
+  }
 
 
 

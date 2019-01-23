@@ -66,6 +66,7 @@ client.on('ready',()=>{
   })
 
   client.on('presenceUpdate',(oldMember,newMember)=>{
+    console.log("test")
 if(newMember.presence.game){
 
   if(!oldMember.presence.game)

@@ -67,8 +67,8 @@ client.on('ready',()=>{
   })
 
   client.on('presenceUpdate',(oldMember,newMember)=>{
-    dupeHandler++
-    if(dupeHandler%2==0) return;
+    
+    
     console.log("test")
 if(newMember.presence.game){
 

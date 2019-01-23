@@ -9,6 +9,7 @@ var MongoClient = require('mongodb').MongoClient;
 var scorekeeping=require('./scorekeeping')
 const eventHandler = require("./eventHandler.js")
 var scorekeeper=require("./blessings.json")
+var dupeHandler=0
 
 eventHandler.em.on('globalMessage',message=>{
   console.log("Hello")
@@ -66,6 +67,8 @@ client.on('ready',()=>{
   })
 
   client.on('presenceUpdate',(oldMember,newMember)=>{
+    
+    if(dupeHandler%2==0) return;
     console.log("test")
 if(newMember.presence.game){
 

@@ -67,7 +67,7 @@ client.on('ready',()=>{
 
   client.on('presenceUpdate',(oldMember,newMember)=>{
 if(newMember.presence.game){
-  if(newMember.presence.game.name=="Fortnite"){
+  if(newMember.presence.game.name=="Fortnite"&&oldMember.presence.game.name!="Fortnite"){
 oldMember.sendMessage("**Taking Ten Minutes out of Fortnite will lead to Better grades on your Pop Test**")
 
 }
@@ -83,10 +83,10 @@ oldMember.sendMessage("**Taking Ten Minutes out of Fortnite will lead to Better 
   })
 
 client.on('message', message => {
-  
+
   let args= message.content.split(" ")
   if(args[0]=="%scoreboard"||args[0]=="%bless") return message.channel.send("**UHH DISABLED COMMAND**")
-  
+
   let names = ["Baylor Meritt", "Hunter Blythe", "Mark Mikhail", "Grace Brydge", "Anna Morris","Thomas Grubb"]
   let randomizer = Math.random(0, names.length)
   var commands = [{name:"%help",value:"**Pulls Up the Smartboard Notes**"},{name:"%clark",value:"**Gives Fashion Advice with the Consultation of " +names[Math.floor(Math.random() * Math.floor(names.length-1))]+"**"},{name:"%scoreboard",value:"Gives the Very Very Best Students"},

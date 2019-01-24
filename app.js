@@ -243,7 +243,7 @@ if(message.mentions){
   {
     message.guild.members.forEach(function(member)
                                 {
-      socrekeeping.addBless(member.id,member.user.username)
+      scorekeeping.addBless(member.id,member.user.username)
     })
   }else{
 scorekeeping.addBless(message.mentions.members.first().id,message.mentions.members.first().user.username)

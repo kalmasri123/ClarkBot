@@ -233,7 +233,7 @@ if(args.length>2||args.length<2){
 }else{
 
 //Correct Args.length
-message.channel.send("**Bless You, My Child!**")
+
 
 
 
@@ -242,10 +242,16 @@ if(message.mentions){
   if(args[1]=="@everyone")
   {
     message.guild.members.forEach(function(member)
-                                {
-      scorekeeping.addBless(member.id,member.user.username)
+     {
+      scorekeeping.addBless(members.id,member.user.username)
+      message.channel.send("**Bless You, My Children!**")
+
+
     })
   }else{
+    message.channel.send("**Bless You, My Child!**")
+
+
 scorekeeping.addBless(message.mentions.members.first().id,message.mentions.members.first().user.username)
   }
 

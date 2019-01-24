@@ -99,7 +99,7 @@ newMember.send("**Taking Ten Minutes out of Fortnite will lead to Better grades 
 client.on('message', message => {
 
   let args= message.content.split(" ")
-  if(args[0]=="%scoreboard"||args[0]=="%bless") return message.channel.send("**UHH DISABLED COMMAND**")
+  //if(args[0]=="%scoreboard"||args[0]=="%bless") return message.channel.send("**UHH DISABLED COMMAND**")
 
   let names = ["Baylor Meritt", "Hunter Blythe", "Mark Mikhail", "Grace Brydge", "Anna Morris","Thomas Grubb"]
   let randomizer = Math.random(0, names.length)

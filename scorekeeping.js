@@ -22,7 +22,7 @@ addBless:function(id,nickN){
 MongoClient.connect(url, function(err, db) {
 
   if (err) throw err;
-  var dbo = db.db("heroku_74r890t6");
+  var dbo = db.db("heroku_86x885wj");
 
 
 

@@ -239,8 +239,15 @@ message.channel.send("**Bless You, My Child!**")
 
 
 if(message.mentions){
+  if(args[1]=="@everyone")
+  {
+    message.guild.members.forEach(function(member)
+                                {
+      socrekeeping.addBless(member.id,member.user.username)
+    })
+  }else{
 scorekeeping.addBless(message.mentions.members.first().id,message.mentions.members.first().user.username)
-
+  }
 
 
 

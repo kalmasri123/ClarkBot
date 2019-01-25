@@ -266,7 +266,7 @@ client.on('message', message => {
             scorekeeping.addBless(member.id,member.user.username)
 
           })
-        } else if (message.mentions.roles.members) {
+        } else if (message.mentions.roles.length!=0) {
           message.mentions.roles.first().members.forEach(function(member) {
             scorekeeping.addBless(member.id, member.user.username)
           })

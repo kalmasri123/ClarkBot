@@ -252,7 +252,7 @@ client.on('message', message => {
 
 
       if (message.mentions) {
-        console.log(message.mentions.roles)
+        console.log(message.mentions.roles.members)
         console.log(message.mentions.roles.length)
         if (args[1] == "@everyone") {
           message.guild.members.forEach(function(member) {

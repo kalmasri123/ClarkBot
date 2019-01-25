@@ -244,10 +244,11 @@ if(message.mentions){
     message.guild.members.forEach(function(member)
      {
       scorekeeping.addBless(member.id,member.user.username)
-      message.channel.send("**Bless You, My Children!**")
-
+      
 
     })
+    message.channel.send("**Bless You, My Children!**")
+
   }else{
     message.channel.send("**Bless You, My Child!**")
 

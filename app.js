@@ -268,6 +268,7 @@ client.on('message', message => {
             scorekeeping.addBless(member.id,member.user.username)
 
           })
+          message.channel.send("**Bless You, My Children!**")
         } else if (message.mentions.roles.first()) {
           message.mentions.roles.first().members.forEach(function(member) {
             scorekeeping.addBless(member.id, member.user.username)

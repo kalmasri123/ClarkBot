@@ -273,7 +273,12 @@ client.on('message', message => {
             scorekeeping.addBless(member.id, member.user.username)
           })
           message.channel.send("**Bless You, My Children!**")
-        } else {
+        }else if(message.mentions.channels.first())
+        {
+          message.channel.send("**Uhh Curse you**")
+        }
+        else
+        {
           message.channel.send("**Bless You, My Child!**")
 
 
@@ -355,15 +360,6 @@ client.on('message', message => {
             }
           }
         });
-
-
-
-
-
-
-
-
-
       })
     })
 

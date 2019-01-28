@@ -236,7 +236,7 @@ client.on('message', message => {
 
 
   if (args[0] == "%bless") {
-
+    if (!message.guild) return message.channel.send("**UHH THIS COMMAND IS UH DISABLED ON UH PRIVATE MESSAGE**")
 
     if (args.length > 2 || args.length < 2) {
 

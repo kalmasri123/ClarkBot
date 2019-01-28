@@ -277,7 +277,7 @@ client.on('message', message => {
         {
           message.channel.send("**Uhh Curse you**")
         }
-        else if(message.mentions.members)
+        else if(message.mentions.members.first())
         {
           message.channel.send("**Bless You, My Child!**")
 

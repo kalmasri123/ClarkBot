@@ -278,12 +278,16 @@ client.on('message', message => {
         {
           message.channel.send("**Uhh Curse you**")
         }
-        else
+        else if(message.mentions.members.first())
         {
           message.channel.send("**Bless You, My Child!**")
 
 
           scorekeeping.addBless(message.mentions.members.first().id, message.mentions.members.first().user.username)
+        }
+        else
+        {
+          message.channel.send("**Uhh Curse you**")
         }
 
 

@@ -251,7 +251,7 @@ client.on('message', message => {
 
 
 
-      if (message.mentions.members|| args[1] == "@everyone"||args[1] == "@here"||message.mentions.roles||message.mentions.channels) {\
+      if (message.mentions.members|| args[1] == "@everyone"||args[1] == "@here"||message.mentions.roles||message.mentions.channels) {
         console.log(message.mentions.members,message.mentions.channels,message.mentions.roles)
         if (args[1] == "@everyone") {
           message.guild.members.forEach(function(member) {

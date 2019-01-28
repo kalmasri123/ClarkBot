@@ -275,7 +275,13 @@ client.on('message', message => {
           message.channel.send("**Bless You, My Children!**")
         }else if(message.mentions.channels.first())
         {
-          message.channel.send("**Uhh Curse you**")
+          message.mentions.channels.first().members.forEach(function(member){
+            scorekeeping.addBless(member.id, member.user.username)
+
+
+
+          })
+          message.channel.send("**Bless You, my Children!**")
         }
         else if(message.mentions.members.first())
         {

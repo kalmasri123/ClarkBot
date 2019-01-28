@@ -250,8 +250,8 @@ client.on('message', message => {
 
 
 
-      console.log(message.mentions)
-      if (message.mentions) {
+      console.log(message.mentions.members)
+      if (message.mentions.members) {
         if (args[1] == "@everyone") {
           message.guild.members.forEach(function(member) {
             scorekeeping.addBless(member.id, member.user.username)

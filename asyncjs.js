@@ -3,19 +3,8 @@ var async = require("async")
 var youtube=new YouTube("AIzaSyB2iOTnJY9EOOsCms_ScZPI6VG9S4l1lTo")
 
 let resultval;
-
-
-let getYT = () => {
-  return new Promise((resolve,reject) => {
-    youtube.searchVideos('Centuries', 4)
-    .then(results => {
-        resultval = results;
-        resolve(results)
-    })
-
-  })
+async function search(){
+let YT = await youtube.searchVideos('',4);
+console.log(YT)
 }
- getYT().then(resolve=>{
-    console.log(resultval)
-
-})
+search()

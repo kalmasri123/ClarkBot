@@ -17,6 +17,7 @@
     "mongodb": "^3.1.6",
     "mongoimport": "^1.0.6",
     "mongoose": "^5.3.2",
-    "request": "^2.88.0"
+    "request": "^2.88.0",
+    "simple-youtube-api": "^5.1.1"
   }
 }

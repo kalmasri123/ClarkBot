@@ -1,88 +1,86 @@
 <html>
-<head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<style>
-body {
-	transition: background-color 2s cubic-bezier(1, 1, 1, 1);
-	transition-delay: 0s;
-}
-img
-{
-	width:50%;
-	height:auto;
-}
-</style>
-<script>
-  function req(){
-    $.get("https://www.reddit.com/r/DonaldClark/random.json",function(data){
-      let url = data[0].data.children[0].data.url
-      let title = data[0].data.children[0].data.title
-      if(url.endsWith('.jpg')){
-         $("img").attr("src",url);
-         $("h1").text(title)
-      }else{
-         req()
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+      body {
+        transition: background-color 2s cubic-bezier(1, 1, 1, 1);
+        transition-delay: 0s;
       }
-
-    })
-
-  }
-  $(document).ready(function(){
-    req()
-    $("img").click(req)
-    $("#sub").click(function(){
-      $.post('/',
-      {
-      KEY:document.getElementById("key").value,
-      MSG:document.getElementById("message").value
-      },
-      function(data,status){
-        console.log(data)
-        if(data=="GRANTED")
-        {
-          console.log(data)
-          $("#responseMSG").text("Message Sent!")
-        }else if(data=="DENIED")
-        {
-          console.log(data)
-          $("#responseMSG").text("Message Failed to Send!")
-        }
-        else{
-          console.log(data)
-          $("#responseMSG").text("An Unknown Error Has Occurred")
-        }
+      img {
+        width: 50%;
+        height: auto;
+      }
+    </style>
+    <script>
+      function req() {
+        $.get("https://www.reddit.com/r/DonaldClark/random.json", function(
+          data
+        ) {
+          let url = data[0].data.children[0].data.url;
+          let title = data[0].data.children[0].data.title;
+          if (url.endsWith(".jpg")) {
+            $("img").attr("src", url);
+            $("h1").text(title);
+          } else {
+            req();
+          }
+        });
+      }
+      $(document).ready(function() {
+        req();
+        $("img").click(req);
+        $("#sub").click(function() {
+          $.post(
+            "/",
+            {
+              KEY: document.getElementById("key").value,
+              MSG: document.getElementById("message").value
+            },
+            function(data, status) {
+              console.log(data);
+              if (data == "GRANTED") {
+                console.log(data);
+                $("#responseMSG").text("Message Sent!");
+              } else if (data == "DENIED") {
+                console.log(data);
+                $("#responseMSG").text("Message Failed to Send!");
+              } else {
+                console.log(data);
+                $("#responseMSG").text("An Unknown Error Has Occurred");
+              }
+            }
+          );
+        });
       });
-    });
-  });
+    </script>
+    <script>
+      var body = $("body");
+      var colors = ["red", "orange", "yellow", "green", "blue", "purple"];
+      var currentIndex = 0;
 
-</script>
-<script>
-var body = $('body')
-var colors = ["red", "orange", "yellow", "green", "blue", "purple"];
-var currentIndex = 0;
-
-setInterval(function() {
-	document.body.style.cssText = "background-color: " + colors[currentIndex];
-	currentIndex++;
-	if (currentIndex == undefined || currentIndex >= colors.length) {
-		currentIndex = 0;
-	}
-}, 1000);
-
-
-
-</script>
-</head>
-<body>
-  <form>
-    <input id="key" type="password" name="key" placeholder="KEY"><br/>
-    <input id="message" type = "text" name = "msg" placeholder="message"/>
-    <button type="button" id="sub">Submit</button>
-
+      setInterval(function() {
+        document.body.style.cssText =
+          "background-color: " + colors[currentIndex];
+        currentIndex++;
+        if (currentIndex == undefined || currentIndex >= colors.length) {
+          currentIndex = 0;
+        }
+      }, 1000);
+    </script>
+  </head>
+  <body>
+    <form>
+      <input id="key" type="password" name="key" placeholder="KEY" /><br />
+      <input id="message" type="text" name="msg" placeholder="message" />
+      <button type="button" id="sub">Submit</button>
     </form>
 
-    <h1 style="font-family: Comic Sans MS, cursive, sans-serif" id="responseMSG"></h1>
-    <img src="">
+    <h1
+      style="font-family: Comic Sans MS, cursive, sans-serif"
+      id="responseMSG"
+    ></h1>
+    <h1>About our Lord and Savior</h1>
+    <p>Our Jesus on Earth uses this website to relay his motivating messages.</p>
+    <img src="" />
   </body>
-
 </html>

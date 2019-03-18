@@ -21,6 +21,7 @@ client.on('voiceStateUpdate',(o,n)=>{
           n.voiceChannel.delete().then(deleted=>{
             console.log(n)
           clone.setParent(deleted.parentID).catch(console.error);  
+            n.send("**You Should be Studying for your Pop-Tests!**")
           
           }).catch(console.error);
         }).catch(console.error);

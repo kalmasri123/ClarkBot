@@ -11,7 +11,11 @@ client.on('voiceStateUpdate',(o,n)=>{
     if(!o.voiceChannel && n.voiceChannel)
     {
         n.voiceChannel.clone(undefined,true,true,"").then(clone=>{
-            n.voiceChannel.delete()
+          
+          n.voiceChannel.delete().then(deleted=>{
+          clone.setParent(n.parent)  
+          
+          })
         })
     }
 

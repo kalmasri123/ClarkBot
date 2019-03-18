@@ -5,6 +5,19 @@ var messages = ["**Bless You**", "**Very very good post**", "**Thats exactly rig
 const https = require('https');
 const Discord = require('discord.js');
 const client = new Discord.Client();
+
+client.on('voiceStateUpdate',(o,n)=>{
+  if(!n.guild) return;
+    if(!o.voiceChannel && n.voiceChannel)
+    {
+        n.voiceChannel.clone(undefined,true,true,"").then(clone=>{
+            n.voiceChannel.delete()
+        })
+    }
+
+})
+
+
 var MongoClient = require('mongodb').MongoClient;
 var scorekeeping = require('./scorekeeping')
 const eventHandler = require("./eventHandler.js")

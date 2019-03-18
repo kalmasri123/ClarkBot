@@ -13,7 +13,8 @@ client.on('voiceStateUpdate',(o,n)=>{
         n.voiceChannel.clone(undefined,true,true,"").then(clone=>{
           
           n.voiceChannel.delete().then(deleted=>{
-          clone.setParent(n.parent).catch(console.error);  
+            
+          clone.setParent(n.parent.id).catch(console.error);  
           
           }).catch(console.error);
         }).catch(console.error);

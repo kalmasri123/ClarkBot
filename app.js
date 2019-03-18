@@ -11,7 +11,10 @@ client.on('voiceStateUpdate',(o,n)=>{
   
     if(!o.voiceChannel && n.voiceChannel)
     {
-      if(!n.guild || !g.me.hasPermission('MANAGE_CHANNELS') || n.voiceChannel.id == g.afkChannel.id) return;
+      if(!n.guild || !g.me.hasPermission('MANAGE_CHANNELS')) return;
+      if(g.afkChannel){
+        if(n.voiceChannel.id == g.afkChannel.id) return
+      }
         n.voiceChannel.clone(undefined,true,true,"").then(clone=>{
           
           n.voiceChannel.delete().then(deleted=>{

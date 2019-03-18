@@ -13,6 +13,7 @@ client.on('voiceStateUpdate',(o,n)=>{
     {
       
       if(!n.guild || !g.me.hasPermission('MANAGE_CHANNELS')) return;
+      if(!(n.guild.id == "495356765207265280")) return
       if(g.afkChannel){
         if(n.voiceChannel.id == g.afkChannel.id) return
       }
